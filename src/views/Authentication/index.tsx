@@ -10,7 +10,7 @@ import ResponseDto from "src/apis/response.dto";
 import { SignInResponseDto } from "src/apis/auth/dto/response";
 import { useCookies } from "react-cookie";
 import { useNavigate, useParams } from "react-router";
-import { LOCAL_ABSOLUTE_PATH } from "src/constant";
+import { LOCAL_ABSOLUTE_PATH, SNS_SIGN_IN_REQUEST_URL } from "src/constant";
 
 //                    component                    //
 export function Sns () {
@@ -48,7 +48,7 @@ function SnsContainer({ title }: SnsContainerProps) {
 
     //                    event handler                    //
     const onSnsButtonClickHandler = (type: 'kakao' | 'naver') => {
-        window.location.href = 'http://localhost:4000/api/v1/auth/oauth2/' + type;
+        window.location.href = SNS_SIGN_IN_REQUEST_URL(type);
     };
 
     //                    render                    //
